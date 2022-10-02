@@ -1,0 +1,34 @@
+<form [formGroup]="addForm" autocomplete="on">
+  <div class="row">
+    <div class="col-md-12">
+      <label class="label">Email</label><br>
+      <input type="email" formControlName="usuario">
+      <p style="color: crimson" *ngIf="fieldIsValidReactive('usuario')">
+        Porfavor Poner un Email Valido
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <label class="label">Documento</label><br>
+      <input type="text" formControlName="contrasena">
+      <p style="color: crimson" *ngIf="fieldIsValidReactive('contrasena')">
+        Mayor a 3 caracteres
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <label class="label">.</label><br>
+          <button  [disabled]="addForm.invalid"
+                   [ngClass]="{'blue-valid':!addForm.invalid, 'blue-invalid':addForm.invalid}"
+                  (click)="OnIniciarSeccion()">
+            INICIAR SECION
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
